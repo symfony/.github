@@ -13,7 +13,7 @@ jobs:
       with:
         script: |
           if (context.repo.owner === "symfony") {
-            const monoRepo = /^polyfill-/.test(context.repo.repo) ? "polyfill" : (/^ux-/.test(context.repo.repo) ? "ux" : "symfony");
+            const monoRepo = /^polyfill-/.test(context.repo.repo) ? "polyfill" : (/^(ux-|stimulus-bundle)/.test(context.repo.repo) ? "ux" : "symfony");
 
             github.rest.issues.createComment({
               owner: "symfony",
